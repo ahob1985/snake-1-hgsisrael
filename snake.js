@@ -1,11 +1,18 @@
 class Snake {
 
   constructor() {
-
+    this.body = [];
+    this.body[0] = createVector(floor(scaledWidth / 2),floor(scaleHeight / 2));
+    this.xDirection = 0;
+    this.yDirection = 0;
   }
 
   update() {
-
+    let head = this.body[this.body.length - 1].copy();
+    this.body.shift();
+    head.x += this.xDirection;
+    head.x += this.yDirection;
+    this.body.push(head);
   }
 
   endGame() {
@@ -21,11 +28,16 @@ class Snake {
   }
 
   show() {
-
+    for(let i = 0 < this.body.length; i++) {
+      fill(0);
+      noStroke();
+      rect(this.body[i].x, this.body[i].y, 1, 1);
+    }
   }
 
   setDirection(x, y) {
-
+    this.xDirection = x;
+    this.yDirection = y;
   }
 
 }
