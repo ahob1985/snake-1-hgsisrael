@@ -20,6 +20,12 @@ class Snake {
     if(head.x > scaledWidth - 1 || head.x < 0 || head.y > scaledHeight - 1 || head.y < 0) {
       return true;
     }
+    for(let i = 0; i < this.body.lengh - 1; i++) {
+      let part = this.body[i];
+      if(part.x === head.x && part.y === head.y) {
+        return true:
+      }
+    }
     return false;
   }
 
